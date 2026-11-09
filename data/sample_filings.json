@@ -1,0 +1,21 @@
+[
+  {
+    "doc_id": "nova-2025-annual",
+    "title": "NovaPay FY2025 Annual Report (Synthetic)",
+    "period": "FY2025",
+    "text": "NovaPay reported revenue of $128 million in FY2025, up 18% from $108.5 million in FY2024. Growth was driven by cross-border payment volume and new merchant integrations. Gross margin improved to 61% from 57% as infrastructure costs per transaction declined. Operating expenses increased 11% to $69 million, primarily because of engineering hiring and compliance investment. The company ended the year with $46 million in cash and no long-term debt. Management identified regulatory change, fraud losses, foreign-exchange volatility, and dependence on two banking partners as material risks. The two largest banking partners processed 44% of total payment volume. NovaPay plans to reduce this concentration below 30% by the end of FY2026."
+  },
+  {
+    "doc_id": "meridian-2025-annual",
+    "title": "Meridian Lending FY2025 Annual Report (Synthetic)",
+    "period": "FY2025",
+    "text": "Meridian Lending originated $820 million of consumer loans during FY2025, compared with $710 million in FY2024. Net interest income was $74 million and the net interest margin was 8.2%. The provision for credit losses rose to $19 million from $12 million after delinquencies increased in the near-prime segment. Loans more than 30 days past due represented 4.8% of the portfolio, up from 3.6%. The allowance for credit losses was 6.1% of outstanding principal. Management tightened approval thresholds in the fourth quarter and expects slower origination growth in FY2026. Liquidity consisted of $35 million in unrestricted cash and $120 million of undrawn warehouse capacity. Key risks include credit deterioration, funding availability, model drift, and fair-lending compliance."
+  },
+  {
+    "doc_id": "atlas-2025-results",
+    "title": "Atlas Wealth FY2025 Results (Synthetic)",
+    "period": "FY2025",
+    "text": "Atlas Wealth assets under management reached $3.4 billion at year end, an increase of 25% from $2.72 billion. Net inflows contributed $410 million and market appreciation contributed the remainder. Recurring advisory revenue grew 22% to $31 million. Client retention was 94%, unchanged from the prior year. Technology and data expenses were $9.6 million, including $2.1 million invested in an AI-assisted portfolio monitoring system. The monitoring system flags mandate breaches for human review and does not place trades autonomously. Management reported no material cybersecurity incidents in FY2025. Principal risks are market declines, client concentration, cybersecurity, and unsuitable investment recommendations."
+  }
+]
+

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "finrag-lab"
+version = "0.1.0"
+description = "An evaluation-first, citation-grounded RAG baseline for financial research."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Adeoye Emmanuel" }]
+keywords = ["rag", "finance", "llm", "evaluation", "research-engineering"]
+dependencies = []
+
+[project.optional-dependencies]
+api = ["fastapi>=0.115", "uvicorn>=0.30"]
+dev = ["pytest>=8.0", "ruff>=0.8"]
+
+[project.scripts]
+finrag = "finrag.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/finrag"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+

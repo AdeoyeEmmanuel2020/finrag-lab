@@ -1,0 +1,29 @@
+[
+  {
+    "question": "How did NovaPay revenue change in FY2025?",
+    "relevant_chunks": ["nova-2025-annual#c0"],
+    "reference_answer": "Revenue increased 18% to $128 million from $108.5 million."
+  },
+  {
+    "question": "What concentration risk did NovaPay report?",
+    "relevant_chunks": ["nova-2025-annual#c1"],
+    "reference_answer": "Two banking partners processed 44% of total payment volume."
+  },
+  {
+    "question": "What evidence suggests Meridian credit quality weakened?",
+    "relevant_chunks": ["meridian-2025-annual#c0"],
+    "reference_answer": "Credit loss provisions rose and loans over 30 days past due increased to 4.8% from 3.6%."
+  },
+  {
+    "question": "Does Atlas Wealth let its AI system trade autonomously?",
+    "relevant_chunks": ["atlas-2025-results#c0"],
+    "reference_answer": "No. It flags mandate breaches for human review and does not place trades autonomously."
+  },
+  {
+    "question": "What was NovaPay's Bitcoin treasury balance?",
+    "relevant_chunks": [],
+    "reference_answer": "",
+    "should_abstain": true
+  }
+]
+
