@@ -11,7 +11,7 @@ def load_documents(path: Path) -> list[Document]:
     """Load small research corpora from JSON with strict field validation."""
     raw = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(raw, list):
-        raise ValueError("Corpus must be a JSON list")
+        raise TypeError("Corpus must be a JSON list")
     documents: list[Document] = []
     for row in raw:
         required = {"doc_id", "title", "period", "text"}
