@@ -19,14 +19,32 @@ experiment can be rerun without a paid model or external service.
 ## Architecture
 
 ```text
-Synthetic filings -> validated documents -> stable chunks -> BM25 index
-                                                        |-> evidence + citations
-Question ---------------------------------------------->|-> extractive answer
-                                                        |-> evaluation metrics
+OFFLINE INDEXING                         ONLINE QUERY
+---------------                         ------------
+JSON reports                            Question
+    |                                      |
+schema validation                         v
+    |                              Retriever interface
+sentence-aware chunking              (BM25 baseline)
+    |                                      |
+stable chunk IDs --------------------> ranked evidence
+                                           |
+                                  coverage gate / abstain
+                                           |
+                                  extractive answer +
+                                    stable citations
+
+OFFLINE EVALUATION
+------------------
+labelled questions -> same query pipeline -> retrieval, citation,
+abstention and answer metrics -> versioned JSONL experiment record
 ```
 
-The zero-dependency core makes the baseline deterministic. An LLM or dense retriever can be added
-behind a narrow interface and evaluated against exactly the same benchmark.
+The online and evaluation paths call the same pipeline, preventing a separate “demo path” from
+producing unmeasured behaviour. The zero-dependency core makes the baseline deterministic. A dense
+or hybrid retriever can implement the typed `Retriever` protocol and be evaluated against the same
+benchmark. See [Architecture and decisions](docs/ARCHITECTURE.md) for boundaries, trade-offs, and
+failure modes.
 
 ## Quick start
 
@@ -45,9 +63,9 @@ Example response:
 
 ```json
 {
-  "answer": "The two largest banking partners processed 44% of total payment volume. [nova-2025-annual#c0]",
-  "citations": ["nova-2025-annual#c0"],
-  "confidence": 0.71
+  "answer": "The two largest banking partners processed 44% of total payment volume. [nova-2025-annual#c1]",
+  "citations": ["nova-2025-annual#c1"],
+  "support_score": 0.50
 }
 ```
 
@@ -66,7 +84,8 @@ Current deterministic baseline (5 labelled questions):
 
 | Metric | Score |
 |---|---:|
-| Retrieval hit rate | 100% |
+| Retrieval recall@3 | 100% |
+| Mean reciprocal rank | 100% |
 | Citation precision | 100% |
 | Abstention accuracy | 100% |
 | Answer token recall | 79.6% |
@@ -87,7 +106,7 @@ Interactive OpenAPI documentation is available at `/docs` when the service is ru
 - Compare BM25, dense, and hybrid retrieval with confidence intervals.
 - Add a provider-neutral LLM answerer with claim-level entailment checks.
 - Build an error-analysis dashboard and human-evaluation protocol.
-- Add experiment metadata (git SHA, seed, dataset version, latency, and cost).
+- Add latency and cost fields when model-backed components are introduced.
 
 ## Working with contributors
 

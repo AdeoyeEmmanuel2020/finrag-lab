@@ -31,7 +31,7 @@ def main() -> None:
         print(json.dumps(pipeline.ask(args.question, args.top_k).to_dict(), indent=2))
     else:
         result = evaluate(pipeline, args.dataset)
-        save_result(result, args.output)
+        save_result(result, args.output, args.dataset)
         print(json.dumps(result.__dict__, indent=2))
 
 

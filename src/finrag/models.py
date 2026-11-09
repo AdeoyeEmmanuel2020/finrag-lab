@@ -40,14 +40,14 @@ class Answer:
     answer: str
     citations: tuple[str, ...]
     evidence: tuple[SearchResult, ...]
-    confidence: float
+    support_score: float
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "question": self.question,
             "answer": self.answer,
             "citations": list(self.citations),
-            "confidence": round(self.confidence, 4),
+            "support_score": round(self.support_score, 4),
             "evidence": [item.to_dict() for item in self.evidence],
         }
 

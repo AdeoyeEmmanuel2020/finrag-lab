@@ -7,7 +7,9 @@ def chunk(chunk_id: str, text: str) -> Chunk:
 
 
 def test_relevant_chunk_ranks_first():
-    index = BM25Index([chunk("revenue", "Revenue grew by 18 percent."), chunk("risk", "Cyber risk increased.")])
+    index = BM25Index(
+        [chunk("revenue", "Revenue grew by 18 percent."), chunk("risk", "Cyber risk increased.")]
+    )
     assert index.search("revenue growth")[0].chunk.chunk_id == "revenue"
 
 

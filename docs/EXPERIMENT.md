@@ -16,8 +16,12 @@ the pipeline should abstain on questions unsupported by the corpus.
 - Unit of retrieval: sentence-aware chunks of at most 90 words.
 - Retriever: BM25 (`k1=1.5`, `b=0.75`), top-k = 3.
 - Answerer: deterministic extractive sentence selection.
-- Metrics: retrieval hit rate, citation precision, token recall, abstention accuracy.
+- Metrics: retrieval recall@3 and mean reciprocal rank on answerable questions; citation precision,
+  token recall, and abstention accuracy on the full set.
 - Reproduction: `make evaluate` from a clean environment.
+
+Each JSONL record includes the UTC run time, Git commit, and SHA-256 dataset fingerprint. This makes
+metric changes traceable to both code and labelled data.
 
 ## Limitations and next experiment
 

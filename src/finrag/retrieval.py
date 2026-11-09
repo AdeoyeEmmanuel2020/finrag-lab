@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 import re
 from collections import Counter
+from typing import Protocol
 
 from .models import Chunk, SearchResult
 
@@ -11,6 +12,12 @@ TOKEN_PATTERN = re.compile(r"[a-zA-Z0-9%$.-]+")
 
 def tokenize(text: str) -> list[str]:
     return [token.lower().strip(".-") for token in TOKEN_PATTERN.findall(text) if token.strip(".-")]
+
+
+class Retriever(Protocol):
+    """Contract implemented by lexical, dense, or hybrid retrievers."""
+
+    def search(self, query: str, top_k: int = 3) -> list[SearchResult]: ...
 
 
 class BM25Index:

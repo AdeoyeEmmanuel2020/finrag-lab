@@ -14,5 +14,5 @@ def test_pipeline_abstains_without_evidence():
     chunk = Chunk("filing#c0", "filing", "Filing", "FY25", "Revenue increased.", 0)
     answer = FinRAGPipeline(BM25Index([chunk])).ask("What was employee satisfaction?")
     assert answer.citations == ()
-    assert answer.confidence == 0.0
+    assert answer.support_score == 0.0
 
